@@ -1,0 +1,14 @@
+FullbrightToggle.MouseButton1Click:connect(function()
+		Bullshit.FullbrightEnabled = not Bullshit.FullbrightEnabled
+		if Bullshit.FullbrightEnabled then
+			FullbrightToggle.BackgroundColor3 = Color3.new(0/255,171/255,11/255)
+			if Bullshit.LightingEvent == nil then
+				Bullshit.LightingEvent = Light.Changed:connect(LightingHax)
+			end
+		else
+			FullbrightToggle.BackgroundColor3 = Color3.new(1, 1, 1)
+			Light.Ambient = Bullshit.AmbientBackup
+			Light.ColorShift_Bottom = Bullshit.ColorShiftBotBackup
+			Light.ColorShift_Top = Bullshit.ColorShiftTopBackup
+		end
+	end)
